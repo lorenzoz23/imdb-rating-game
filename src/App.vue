@@ -5,7 +5,8 @@
     text-align: center;
   "
   >
-    <v-navigation-drawer expand-on-hover app right color="blue" dark>
+    <v-navigation-drawer expand-on-hover app right dark>
+      <!-- style="background: linear-gradient(270deg, rgba(53,86,255,1) 0%, rgba(129,203,255,1) 100%);" -->
       <v-list>
         <v-list-item class="px-2">
           <v-list-item-avatar>
@@ -51,12 +52,12 @@
         max-width="50%"
         elevation="24"
         shaped
-        style="border: 5px solid lightblue"
+        style="border: 5px solid lightblue; background: radial-gradient(circle, rgba(119,63,63,1) 0%, rgba(0,0,0,1) 100%);"
       >
         <v-tooltip top open-delay="500" close-delay="500">
           <template v-slot:activator="{ on, attrs }">
             <v-img
-              style="background-image: url(https://img.wallpapersafari.com/desktop/1600/900/7/52/mLoQ1J.jpg); background-color: #34495E;"
+              style="margin-top: 10px;"
               contain
               v-bind="attrs"
               v-on="on"
@@ -69,7 +70,7 @@
         </v-tooltip>
         <v-card-title class="justify-center" style="font-size: 32px;">
           The Stanford Prison Experiment
-          <v-tooltip right>
+          <!-- <v-tooltip right>
             <template v-slot:activator="{ on, attrs }">
               <v-btn
                 style="margin-left: 10px"
@@ -84,33 +85,44 @@
               </v-btn>
             </template>
             <span>Click to visit the film's IMDb page</span>
-          </v-tooltip>
+          </v-tooltip>-->
         </v-card-title>
         <v-card-subtitle class="pb-0" style="padding: 10px">Plot</v-card-subtitle>
         <v-card-text class="text--primary">
           <div>In 1971, twenty-four male students are selected to take on randomly assigned roles of prisoners and guards in a mock prison situated in the basement of the Stanford psychology building.</div>
         </v-card-text>
-        <v-card-actions style="justify-content: center">
-          <v-tooltip right open-delay="500">
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                x-large
-                rounded
-                color="#58EE9C"
-                dark
-                style="padding: 30px"
-                ripple
-                v-bind="attrs"
-                v-on="on"
-              >Guess Rating</v-btn>
-            </template>
-            <span>Guess the IMDb rating of the film!</span>
-          </v-tooltip>
+        <v-card-actions style="justify-content: center; flex-direction: column;">
+          <v-btn
+            x-large
+            rounded
+            v-if="showGuessRating"
+            color="#58EE9C"
+            dark
+            style="padding: 30px"
+            v-on:click="showGuessRating=!showGuessRating"
+          >Guess Rating</v-btn>
+          <v-slider
+            v-if="!showGuessRating"
+            v-model="slider"
+            thumb-label="always"
+            max="10"
+            min="0"
+            step=".1"
+            color="#4AD589"
+            style="padding: 30px 30px 0px 30px; width: 100%"
+          ></v-slider>
         </v-card-actions>
         <v-card-actions style="justify-content: center">
           <v-tooltip bottom>
             <template v-slot:activator="{ on, attrs }">
-              <v-btn v-bind="attrs" v-on="on" text color="#4AD589">
+              <v-btn
+                v-bind="attrs"
+                v-on="on"
+                text
+                color="#4AD589"
+                @click="showGuessRating=true"
+                style="margin: 10px"
+              >
                 Skip
                 <v-icon style="padding-left: 10px">mdi-skip-next-circle</v-icon>
               </v-btn>
@@ -133,7 +145,9 @@ export default Vue.extend({
     //
   },
 
-  data: () => ({})
+  data: () => ({
+    showGuessRating: true
+  })
 });
 </script>
 
