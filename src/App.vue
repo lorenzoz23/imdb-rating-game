@@ -20,9 +20,7 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
-
       <v-divider></v-divider>
-
       <v-list nav dense>
         <v-list-item link>
           <v-list-item-icon>
@@ -45,27 +43,8 @@
       </v-list>
     </v-navigation-drawer>
 
-    <!-- <v-app-bar absolute dark dense elevation="12" rounded>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
-      <v-toolbar-title>Raters of the Lost Ark</v-toolbar-title>
-
-      <v-spacer></v-spacer>
-
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
-    </v-app-bar>-->
-
     <v-spacer></v-spacer>
+
     <v-main>
       <v-card
         class="mx-auto"
@@ -88,7 +67,6 @@
           </template>
           <span>The Standford Prison Experiment (2015)</span>
         </v-tooltip>
-
         <v-card-title class="justify-center" style="font-size: 32px;">
           The Stanford Prison Experiment
           <v-tooltip right>
@@ -109,11 +87,9 @@
           </v-tooltip>
         </v-card-title>
         <v-card-subtitle class="pb-0" style="padding: 10px">Plot</v-card-subtitle>
-
         <v-card-text class="text--primary">
           <div>In 1971, twenty-four male students are selected to take on randomly assigned roles of prisoners and guards in a mock prison situated in the basement of the Stanford psychology building.</div>
         </v-card-text>
-
         <v-card-actions style="justify-content: center">
           <v-tooltip right open-delay="500">
             <template v-slot:activator="{ on, attrs }">
@@ -149,28 +125,15 @@
 
 <script lang="ts">
 import Vue from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
-import Home from "./components/Home.vue";
 
 export default Vue.extend({
   name: "App",
 
   components: {
-    //Home
+    //
   },
 
-  data: () => ({
-    direction: "top",
-    fab: false,
-    fling: false,
-    hover: true,
-    tabs: null,
-    top: false,
-    right: true,
-    bottom: true,
-    left: false,
-    transition: "slide-x-reverse-transition"
-  })
+  data: () => ({})
 });
 </script>
 
